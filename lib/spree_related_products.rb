@@ -1,5 +1,4 @@
 require 'spree_core'
-require 'spree_related_products_hooks'
 
 module SpreeRelatedProducts
   class Engine < Rails::Engine
