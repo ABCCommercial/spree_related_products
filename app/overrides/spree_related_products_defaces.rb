@@ -1,6 +1,6 @@
 Deface::Override.new(:virtual_path => "admin/shared/_product_tabs",
                      :name => "converted_admin_product_tabs_60599750",
-                     :insert_after => "[data-hook='admin_product_tabs'], #admin_product_tabs[data-hook]",
+                     :insert_bottom => "[data-hook='admin_product_tabs'], #admin_product_tabs[data-hook]",
                      :partial => "admin/products/related_products",
                      :disabled => false)
 
