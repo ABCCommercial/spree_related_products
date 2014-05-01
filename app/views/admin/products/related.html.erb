@@ -11,7 +11,7 @@
   <div id="add-line-item">
     <fieldset>
       <legend><%= t('add_related_product') %></legend>
-      <%= hook :spree_related_products_product_related_form, { :relation_types => @relation_types, :product => @product } do %>
+      <div data-hook='related_product_form'>
         <div style="float:left;width:55%;margin-right:5%;">
           <%= label_tag :add_product_name, t("name_or_sku") %>
           <%= text_field_tag :add_product_name,  {}, :class => 'fullwidth title'  %>
@@ -33,7 +33,7 @@
               admin_product_relations_url(@product),
               {:id => "add_related_product", :class => 'button', 'data-update' => 'products-table-wrapper'} %>
         </div>
-      <% end %>
+      </div>
     </fieldset>
   </div>
 
@@ -44,9 +44,9 @@
   <% content_for :head do %>
     <%= javascript_tag "var expand_variants = false;" %>
     <%= javascript_include_tag 'admin/orders/edit.js' %>
-    <%= stylesheet_link_tag 'admin/edit_orders.css' %>
+    <%# <%= stylesheet_link_tag 'admin/edit_orders.css' %>
 
-    <%= hook :spree_related_products_product_related_javascript do %>
+      <div data-hook='related_products_javascript'>
       <script type="text/javascript">
         $("#add_related_product").live("click", function(){
           if($('#add_variant_id').val() == ''){ return false; }
@@ -66,7 +66,7 @@
           return false;
         });
       </script>
-    <% end %>
+    </div>
   <% end %>
 
 <% end %>
